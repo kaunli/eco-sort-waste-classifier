@@ -38,7 +38,7 @@ Improper waste sorting is a major environmental issue. EcoSort was built to demo
 
 ---
 
-## Model Files
+## 📁 Model Files
 
 Due to GitHub file size limitations, trained models are hosted externally:
 
