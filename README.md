@@ -38,6 +38,15 @@ Improper waste sorting is a major environmental issue. EcoSort was built to demo
 
 ---
 
+## Model Files
+
+Due to GitHub file size limitations, trained models are hosted externally:
+
+- ResNet50 Model: https://drive.google.com/file/d/1b86dWIVMHG-ww_ugbyStdW5hKyBRDvlJ/view?usp=sharing
+- VGG16 Model: https://drive.google.com/file/d/1KHgi-g32ONPKTSQu3YYdVenyd5hbMuFO/view?usp=sharing
+
+---
+
 ## 💻 How It Works
 
 1. User uploads an image through the web interface  
