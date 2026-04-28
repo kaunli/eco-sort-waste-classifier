@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EcoSort Webapp</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <h1>EcoSort WebApp</h1>
+
+    {% if error %}
+        <p class="error-message">{{ error }}</p>
+    {% endif %}
+
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*" required>
+        <input type="submit" value="Upload & Classify">
+    </form>
+
+    {% if image_path %}
+        <img src="{{ image_path }}" alt="Uploaded Image" class="image-preview">
+    {% endif %}
+
+    {% if result %}
+        <div class="prediction-card final 
+            {% if result.final_pred == 'Hazardous' %}hazardous
+            {% elif result.final_pred == 'Non-Recyclable' %}non-recyclable
+            {% elif result.final_pred == 'Organic' %}organic
+            {% elif result.final_pred == 'Recyclable' %}recyclable
+            {% endif %}">
+            
+            <h3>
+                {% if result.final_pred == 'Hazardous' %}
+                    <i class="fas fa-skull-crossbones"></i>
+                {% elif result.final_pred == 'Non-Recyclable' %}
+                    <i class="fas fa-trash"></i>
+                {% elif result.final_pred == 'Organic' %}
+                    <i class="fas fa-leaf"></i>
+                {% elif result.final_pred == 'Recyclable' %}
+                    <i class="fas fa-recycle"></i>
+                {% endif %}
+                Final Prediction
+            </h3>
+
+            <p class="category">{{ result.final_pred }}</p>
+            <p class="confidence">Confidence: {{ result.final_conf }}</p>
+            <p class="instruction">{{ result.instruction }}</p>
+        </div>
+    {% endif %}
+
+</body>
+</html>
